@@ -1,5 +1,6 @@
 from pydantic import BaseModel, Field
 from datetime import datetime
+from enum import Enum
 
 from pydantic import BaseModel
 
@@ -29,12 +30,13 @@ class Signal(str, Enum):
     MICROSOFT_SIGNAL: "MICROSOFT_SIGNAL"
 
 class Signaltwo(BaseModel):
+
     type = SIZE_FIT
     value = STRONG
-    evidence = HIGH
+    evidence_ids = HIGH
 
 
-class Qualification(Enum, BaseModel):
+class Qualification(BaseModel, Enum):
     High = "HIGH"
     Medium = "MEDIUM"
     Skip = "SKIP"
